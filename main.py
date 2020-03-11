@@ -14,9 +14,9 @@ def download():
 
 # Clear function
 def clear():
+    entry.state(['!disabled'])
     entry.delete(0, 'end')
     info.set('Write the link of the video')
-    entry.state(['!disabled'])
 
 
 # tkinter object
@@ -38,8 +38,8 @@ root.rowconfigure(0, weight=1)
 img = Image.open('./images/ytlogo.png')
 image = img.resize((300, 300), Image.ANTIALIAS) ## The (250, 250) is (height, width)
 imgobj = ImageTk.PhotoImage(image)
-img_label = ttk.Label(content, image=imgobj)
-img_label.grid(column=0, row=0, sticky=(W, E), padx=100, columnspan=3)
+img_label = ttk.Label(content, image=imgobj, anchor='center')
+img_label.grid(column=0, row=0, sticky=(W, E), columnspan=2)
 
 # Label info
 info = StringVar()
