@@ -8,14 +8,12 @@ def download_video(link):
     try:
         yt = YouTube(link) # YouTube object
     except:
-        print('Connection Error.')
+        return 'Link Error...'
+    else:
+        stream = yt.streams.filter(progressive=True).first()
 
-    stream = yt.streams.filter(progressive=True).first()
-
-
-    try:
-        stream.download()
-    except:
-        print('Some Error.')
-
-    print('Download Completed...')
+        try:
+            stream.download()
+            return 'Download Completed!'
+        except:
+            return 'Downloading Error...'
