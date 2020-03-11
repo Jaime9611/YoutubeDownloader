@@ -10,11 +10,13 @@ from ydownloader import download_video
 def download():
     status_dw = download_video(entry.get())
     info.set(status_dw)
+    entry.state(['disabled'])
 
 # Clear function
 def clear():
     entry.delete(0, 'end')
     info.set('Write the link of the video')
+    entry.state(['!disabled'])
 
 
 # tkinter object
